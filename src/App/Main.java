@@ -18,11 +18,15 @@ public class Main {
 
         System.out.println("Digite o nome do departamento: ");
         String departamento = sc.nextLine();
+
         System.out.println("Digite os dados do trabalhador: ");
+
         System.out.println("NOME: ");
         String nomeTrab = sc.nextLine();
+
         System.out.println("LEVEL: ");
         String level = sc.nextLine();
+
         System.out.println("SALARIO: ");
         double salario = sc.nextDouble();
 
@@ -35,10 +39,13 @@ public class Main {
             System.out.println("Informe os dados do contrato "+i);
             System.out.print("Data (dd/MM/yyyy): ");
             Date dataContrato = sdf.parse(sc.next());
+
             System.out.print("Valor por hora: ");
             double valorHora = sc.nextDouble();
+
             System.out.print("Duração(horas): ");
             int horas = sc.nextInt();
+
             ContratoPorHora contrato = new ContratoPorHora(dataContrato,valorHora,horas);
             trabalhador.addContrato(contrato);
         }
@@ -48,6 +55,11 @@ public class Main {
         String mesAno = sc.next();
         int mes = Integer.parseInt(mesAno.substring(0,2));
         int ano = Integer.parseInt(mesAno.substring(3));
+
+        System.out.println("Nome: "+trabalhador.getNome());
+        System.out.println("Departamento:"+ trabalhador.getDepartamento().getNome());
+        System.out.println("Salario total: "+ String.format("%.2f",trabalhador.renda(ano,mes)));
+
 
         sc.close();
 
